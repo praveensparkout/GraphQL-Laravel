@@ -74,4 +74,4 @@ GraphQL endpoint will be - http://BASE_URL/graphql
 ![image](https://user-images.githubusercontent.com/33898897/125932829-67c933dd-7e0a-4983-847c-fe4abd625357.png)
 
 
-![image](https://user-images.githubusercontent.com/33898897/125930215-25d96866-a58b-42cf-8eeb-1bff4b8de694.png)
+
