@@ -42,30 +42,13 @@ In the same way, create a second file in the ./app/GraphQL/Queries directory cal
 After creating these types and queries, you need to register these items as the GraphQL schema in your API. So, open the graphql.php file (you will find it inside the config directory) and replace the current definition of 'schemas' with the following:
 
 // ./config/graphql.php
-
-// ...
-    'schemas' => [
-        'default' => [
-               'query' => [
-                   'covid' => App\GraphQL\Queries\CovidQuery::class,
-                'covids' => App\GraphQL\Queries\CovidssQuery::class,
-            ]
-        ],
-    ],
-// ...
-
+![image](https://user-images.githubusercontent.com/33898897/125930807-8ed0eb5f-76cb-4727-aa28-925feac88023.png)
 
 Here you are saying that the schema of your GraphQL API consists of two queries named covid and covids, mapped to CovidQuery and CovidsQuery classes respectively.
 
 Then, in the same file, replace the current definition of 'types' with the following:
 
-// ./config/graphql.php
-
-// ...
-    'types' => [
-      <img width="797" alt="CovidQuery" src="https://user-images.githubusercontent.com/33898897/125930051-902c9f53-c239-482f-9706-cfb08f5b6395.png">
-  ],
-// ..
+![image](https://user-images.githubusercontent.com/33898897/125930718-91fae17d-e2e1-48ba-b261-bf078fbbbd3e.png)
 
 This definition maps the type GraphQL Covid to the CovidType class.
 
