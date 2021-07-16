@@ -21,127 +21,21 @@ This command extracts the graphql.php configuration file from the vendor folder 
 # Creating the Covid Type
 
 Created the GraphQL directory inside the app directory. This directory will contain all the definitions you need for the GraphQL schema of the API. In the app/GraphQL directory, create the Types directory and put in it a file called CovidType.php with the following content:
-
-<?php
-
-namespace App\GraphQL\Types;
-
-use App\Models\Covid;
-use GraphQL\Type\Definition\Type;
-use Rebing\GraphQL\Support\Type as GraphQLType;
-
-class CovidType extends GraphQLType
-{
-    protected $attributes = [
-        'name' => 'Covid',
-        'description' => 'Details about covid',
-        'model' => Covid::class
-    ];
-
-    public function fields(): array
-    {
-        return [
-            'id' => [
-                'type' => Type::nonNull(Type::int()),
-                'description' => 'Id of the covid',
-            ],
-            'name' => [
-                'type' => Type::nonNull(Type::string()),
-                'description' => 'The name of covid',
-            ],
-            'description' => [
-                'type' => Type::nonNull(Type::string()),
-                'description' => 'Short description of the covid',
-            ],
-            'peopleAffected' => [
-                'type' => Type::nonNull(Type::int()),
-                'description' => 'Number of pepole afftected due to covid',
-            ],
-            'deathCount' => [
-                'type' => Type::nonNull(Type::int()),
-                'description' => 'Number of death due to covid',
-            ],
-            'peopleVaccinated' => [
-                'type' => Type::nonNull(Type::int()),
-                'description' => 'Number of people vaccinated',
-            ],
-            'is_lockdown' => [
-                'type' => Type::nonNull(Type::string()),
-                'description' => 'Currently in lockdown or not',
-            ],
-        ];
-    }
-}
+![image](https://user-images.githubusercontent.com/33898897/125930374-86bec04c-8415-4f6f-96d7-03e0787d7f0b.png)
 
 # Creating the GraphQL Queries
 
 Created a Queries directory inside the ./app/GraphQL directory and put there a file called CovidsQuery.php with the following content:
 
-<?php
-
-namespace App\GraphQL\Queries;
-
-use App\Models\Covid;
-use GraphQL\Type\Definition\Type;
-use Rebing\GraphQL\Support\Query;
-use GraphQL;
-class CovidsQuery extends Query
-{
-    protected $attributes = [
-        'name' => 'covids',
-    ];
-
-    public function type(): Type
-    {
-        return Type::listOf(GraphQL::type('Covid'));
-    }
-
-    public function resolve($root, $args)
-    {
-        return Covid::all();
-    }
-}
+![image](https://user-images.githubusercontent.com/33898897/125930538-618fd52f-d310-4694-96ad-0b4e8e2e7ce6.png)
+   
 
 The type() method returns the type of the resource returned by the query, expressed as a list of Covid type items. The resolve() method actually returns the list of covids by using the all() method of the Covid model.
 
 In the same way, create a second file in the ./app/GraphQL/Queries directory called CovidQuery.php (note that, this time, covid is singular). In this file, add the following code:
 
-<?php
+![image](https://user-images.githubusercontent.com/33898897/125930215-25d96866-a58b-42cf-8eeb-1bff4b8de694.png)
 
-namespace App\GraphQL\Queries;
-
-use App\Models\Covid;
-use GraphQL\Type\Definition\Type;
-use Rebing\GraphQL\Support\Query;
-use Rebing\GraphQL\Support\Facades\GraphQL;
-
-class CovidQuery extends Query
-{
-    protected $attributes = [
-        'name' => 'covid',
-    ];
-
-    public function type(): Type
-    {
-        return GraphQL::type('Covid');
-    }
-
-    public function args():array
-    {
-        return [
-            'id' => [
-                'name' => 'id',
-                'type' => Type::int(),
-                'rules' => ['required']
-            ],
-        ];
-    }
-
-    public function resolve($root, $args)
-    {
-        return Covid::findOrFail($args['id']);
-    }
-}
 
 # Registering the Schema 
 
@@ -169,7 +63,7 @@ Then, in the same file, replace the current definition of 'types' with the follo
 
 // ...
     'types' => [
-      'Covid' => App\GraphQL\Types\CovidType::class,
+      <img width="797" alt="CovidQuery" src="https://user-images.githubusercontent.com/33898897/125930051-902c9f53-c239-482f-9706-cfb08f5b6395.png">
   ],
 // ..
 
