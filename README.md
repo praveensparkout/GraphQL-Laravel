@@ -65,3 +65,13 @@ This definition maps the type GraphQL Covid to the CovidType class.
 Now you are ready to use your GraphQL API. You could test the API by using curl, Postman, or any other HTTP client. 
 
 GraphQL endpoint will be - http://BASE_URL/graphql
+
+
+![image](https://user-images.githubusercontent.com/33898897/125932792-65271628-d3c8-474b-9fa4-86ece5c61c2e.png)
+
+ - Response:
+
+![image](https://user-images.githubusercontent.com/33898897/125932829-67c933dd-7e0a-4983-847c-fe4abd625357.png)
+
+
+![image](https://user-images.githubusercontent.com/33898897/125930215-25d96866-a58b-42cf-8eeb-1bff4b8de694.png)
