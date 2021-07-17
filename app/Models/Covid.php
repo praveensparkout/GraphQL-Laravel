@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Covid extends Model
 {
     use HasFactory;
+    protected $fillable = ['name', 'description','peopleAffected','deathCount','peopleVaccinated','is_lockdown'];
 }

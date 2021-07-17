@@ -108,6 +108,9 @@ return [
             ],
             'mutation' => [
                 // ExampleMutation::class,
+                'createCovid' => App\GraphQL\Mutations\Covid\CreateCovidMutation::class,
+                'updateCovid' => App\GraphQL\Mutations\Covid\UpdateCovidMutation::class,
+                'deleteCovid' => App\GraphQL\Mutations\Covid\DeleteCovidMutation::class,
             ],
             'types' => [
                 // ExampleType::class,
